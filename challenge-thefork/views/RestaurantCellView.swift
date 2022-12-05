@@ -8,7 +8,11 @@
 import UIKit
 import AlamofireImage
 
-class RestaurantTableViewCell: UITableViewCell {
+protocol RestaurantCellViewDelegate: AnyObject {
+    func didTapHeart(restaurant: MinifiedRestaurant)
+}
+
+class RestaurantCellView: UITableViewCell {
 
     let restaurantImageView = UIImageView()
     let nameLabel = UILabel()
@@ -16,8 +20,13 @@ class RestaurantTableViewCell: UITableViewCell {
     let averagePriceLabel = UILabel()
     let heartImageView = UIImageView()
     
+    weak var delegate: RestaurantCellViewDelegate?
+    private var minifiedRestaurant: MinifiedRestaurant?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        selectionStyle = .none
         
         restaurantImageView.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -29,6 +38,9 @@ class RestaurantTableViewCell: UITableViewCell {
         restaurantImageView.clipsToBounds = true
         
         heartImageView.contentMode = .scaleAspectFit
+        heartImageView.isUserInteractionEnabled = true
+        let heartTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleHeartTap(_:)))
+        heartImageView.addGestureRecognizer(heartTapGestureRecognizer)
         
         nameLabel.numberOfLines = 0
         addressLabel.numberOfLines = 0
@@ -64,12 +76,24 @@ class RestaurantTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func handleHeartTap(_ sender: UITapGestureRecognizer? = nil) {
+        if let restaurant = self.minifiedRestaurant {
+            delegate?.didTapHeart(restaurant: restaurant)
+        }
+    }
+    
     func setup(with restaurant: MinifiedRestaurant) {
+        self.minifiedRestaurant = restaurant
+        
         nameLabel.text = restaurant.name
         addressLabel.text = restaurant.address
         averagePriceLabel.text = "€ \(restaurant.priceRange)"
         
-        heartImageView.image = AppImages.emptyHeart
+        if restaurant.isFavourite {
+            heartImageView.image = AppImages.filledHeart
+        } else {
+            heartImageView.image = AppImages.emptyHeart
+        }
         
         if let thumbnailURL = restaurant.thumbnailURL {
             restaurantImageView.af.setImage(withURL: thumbnailURL, placeholderImage: AppImages.noImage)

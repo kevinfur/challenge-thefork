@@ -8,7 +8,6 @@
 import Foundation
 
 struct MinifiedRestaurant {
-    
     let uuid: String
     let name: String
     let priceRange: Int
@@ -16,5 +15,9 @@ struct MinifiedRestaurant {
     let theForkRatingValue: Double
     let theForkReviewCount: Int
     let thumbnailURL: URL?
+    var isFavourite: Bool
     
+    mutating func toggleFavourite() {
+        self.isFavourite = !self.isFavourite
+    }
 }

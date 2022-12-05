@@ -11,14 +11,15 @@ struct MinifiedRestaurantMapper {
     
     private init() { }
 
-    static func map(from restaurantDTO: RestaurantDTO) -> MinifiedRestaurant? {
+    static func map(from restaurantDTO: RestaurantDTO, favouriteRestaurantsService: FavouriteRestaurantsService = FavouriteRestaurantsService()) -> MinifiedRestaurant? {
         return MinifiedRestaurant(uuid: restaurantDTO.uuid,
                                   name: restaurantDTO.name,
                                   priceRange: restaurantDTO.priceRange,
                                   address: restaurantDTO.address.street,
                                   theForkRatingValue: restaurantDTO.aggregateRatings.thefork.ratingValue,
                                   theForkReviewCount: restaurantDTO.aggregateRatings.thefork.reviewCount,
-                                  thumbnailURL: restaurantDTO.mainPhoto?.thumbnail)
+                                  thumbnailURL: restaurantDTO.mainPhoto?.thumbnail,
+                                  isFavourite: favouriteRestaurantsService.hasRestaurant(with: restaurantDTO.uuid))
     }
     
 }

@@ -11,11 +11,17 @@ protocol RestaurantListPresenterProtocol: AnyObject {
     var view: RestaurantListViewProtocol? { get set }
     var restaurants: [MinifiedRestaurant] { get }
     func didLoad()
+    func didTapHeart(_ restaurantId: String)
 }
 
 class RestaurantListPresenter: RestaurantListPresenterProtocol {
     
     weak var view: RestaurantListViewProtocol?
+    var favouriteRestaurantsService: FavouriteRestaurantsService
+    
+    init(favouriteRestaurantsService: FavouriteRestaurantsService = FavouriteRestaurantsService()) {
+        self.favouriteRestaurantsService = favouriteRestaurantsService
+    }
     
     var restaurants: [MinifiedRestaurant] = [] {
         didSet {
@@ -36,6 +42,13 @@ class RestaurantListPresenter: RestaurantListPresenterProtocol {
                 print(error)
             }
         })
+    }
+    
+    func didTapHeart(_ restaurantId: String) {
+        if let index = self.restaurants.firstIndex(where: {$0.uuid == restaurantId}) {
+            favouriteRestaurantsService.toggleRestaurant(id: restaurantId)
+            restaurants[index].toggleFavourite()
+        }
     }
     
 }

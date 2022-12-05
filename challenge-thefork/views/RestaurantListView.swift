@@ -39,7 +39,7 @@ class RestaurantListView: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 70
         
-        tableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: "\(RestaurantTableViewCell.self)")
+        tableView.register(RestaurantCellView.self, forCellReuseIdentifier: "\(RestaurantCellView.self)")
     }
 
 }
@@ -51,25 +51,24 @@ extension RestaurantListView {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(RestaurantTableViewCell.self)", for: indexPath) as? RestaurantTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(RestaurantCellView.self)", for: indexPath) as? RestaurantCellView else { return UITableViewCell()}
+        cell.delegate = self
         cell.setup(with: presenter.restaurants[indexPath.row])
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+}
+
+extension RestaurantListView: RestaurantCellViewDelegate {
+    func didTapHeart(restaurant: MinifiedRestaurant) {
+        presenter.didTapHeart(restaurant.uuid)
     }
-    
 }
 
 extension RestaurantListView: RestaurantListViewProtocol {
-    
     func updateUI() {
         if isViewLoaded {
             tableView.reloadData()
         }
     }
-    
 }
-
-
