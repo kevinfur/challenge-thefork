@@ -17,8 +17,12 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
                 // do only pure app launch stuff, not interface stuff
             } else {
                 self.window = UIWindow()
-                let vc = ViewController()
-                self.window!.rootViewController = vc
+                
+                let vc = RestaurantListView(presenter: RestaurantListPresenter())
+                let navigationController = UINavigationController()
+                navigationController.viewControllers = [vc]
+                
+                self.window!.rootViewController = navigationController
                 self.window!.makeKeyAndVisible()
             }
             return true

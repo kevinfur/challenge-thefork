@@ -12,13 +12,20 @@
 		8E7FEC4748BE835FE52F76F9 /* Pods_challenge_thefork_challenge_theforkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E695AF5C4254BAC421C5458 /* Pods_challenge_thefork_challenge_theforkUITests.framework */; };
 		C30553DA293CDD5800A80715 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30553D9293CDD5800A80715 /* AppDelegate.swift */; };
 		C30553DC293CDD5800A80715 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30553DB293CDD5800A80715 /* SceneDelegate.swift */; };
-		C30553DE293CDD5800A80715 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30553DD293CDD5800A80715 /* ViewController.swift */; };
+		C30553DE293CDD5800A80715 /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30553DD293CDD5800A80715 /* RestaurantListView.swift */; };
 		C30553E1293CDD5800A80715 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30553DF293CDD5800A80715 /* Main.storyboard */; };
 		C30553E3293CDD5A00A80715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30553E2293CDD5A00A80715 /* Assets.xcassets */; };
 		C30553E6293CDD5A00A80715 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30553E4293CDD5A00A80715 /* LaunchScreen.storyboard */; };
 		C30553F1293CDD5A00A80715 /* challenge_theforkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30553F0293CDD5A00A80715 /* challenge_theforkTests.swift */; };
 		C30553FB293CDD5A00A80715 /* challenge_theforkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30553FA293CDD5A00A80715 /* challenge_theforkUITests.swift */; };
 		C30553FD293CDD5A00A80715 /* challenge_theforkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30553FC293CDD5A00A80715 /* challenge_theforkUITestsLaunchTests.swift */; };
+		C305540B293CED3500A80715 /* RestaurantsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C305540A293CED3500A80715 /* RestaurantsService.swift */; };
+		C305540E293D11A500A80715 /* RestaurantsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C305540D293D11A500A80715 /* RestaurantsResponseDTO.swift */; };
+		C3055411293D172100A80715 /* RestaurantListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3055410293D172100A80715 /* RestaurantListPresenter.swift */; };
+		C3055415293D41EE00A80715 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3055414293D41EE00A80715 /* RestaurantTableViewCell.swift */; };
+		C3055418293D888200A80715 /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3055417293D888200A80715 /* AppImages.swift */; };
+		C305541C293D90C000A80715 /* MinifiedRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C305541B293D90C000A80715 /* MinifiedRestaurant.swift */; };
+		C305541E293D910900A80715 /* MinifiedRestaurantMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C305541D293D910900A80715 /* MinifiedRestaurantMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +57,7 @@
 		C30553D6293CDD5800A80715 /* challenge-thefork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-thefork.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30553D9293CDD5800A80715 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C30553DB293CDD5800A80715 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C30553DD293CDD5800A80715 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C30553DD293CDD5800A80715 /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		C30553E0293CDD5800A80715 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C30553E2293CDD5A00A80715 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C30553E5293CDD5A00A80715 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +67,13 @@
 		C30553F6293CDD5A00A80715 /* challenge-theforkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "challenge-theforkUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30553FA293CDD5A00A80715 /* challenge_theforkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_theforkUITests.swift; sourceTree = "<group>"; };
 		C30553FC293CDD5A00A80715 /* challenge_theforkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_theforkUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C305540A293CED3500A80715 /* RestaurantsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsService.swift; sourceTree = "<group>"; };
+		C305540D293D11A500A80715 /* RestaurantsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsResponseDTO.swift; sourceTree = "<group>"; };
+		C3055410293D172100A80715 /* RestaurantListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListPresenter.swift; sourceTree = "<group>"; };
+		C3055414293D41EE00A80715 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		C3055417293D888200A80715 /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
+		C305541B293D90C000A80715 /* MinifiedRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinifiedRestaurant.swift; sourceTree = "<group>"; };
+		C305541D293D910900A80715 /* MinifiedRestaurantMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinifiedRestaurantMapper.swift; sourceTree = "<group>"; };
 		D36FF14ECBCE9C3118691F0D /* Pods-challenge-thefork-challenge-theforkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge-thefork-challenge-theforkUITests.debug.xcconfig"; path = "Target Support Files/Pods-challenge-thefork-challenge-theforkUITests/Pods-challenge-thefork-challenge-theforkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,9 +153,15 @@
 		C30553D8293CDD5800A80715 /* challenge-thefork */ = {
 			isa = PBXGroup;
 			children = (
+				C305541A293D909D00A80715 /* models */,
+				C3055419293D907A00A80715 /* mappers */,
+				C3055416293D881600A80715 /* utils */,
+				C3055412293D173500A80715 /* views */,
+				C305540F293D16F600A80715 /* presenters */,
+				C305540C293D118000A80715 /* dtos */,
+				C3055409293CECD800A80715 /* services */,
 				C30553D9293CDD5800A80715 /* AppDelegate.swift */,
 				C30553DB293CDD5800A80715 /* SceneDelegate.swift */,
-				C30553DD293CDD5800A80715 /* ViewController.swift */,
 				C30553DF293CDD5800A80715 /* Main.storyboard */,
 				C30553E2293CDD5A00A80715 /* Assets.xcassets */,
 				C30553E4293CDD5A00A80715 /* LaunchScreen.storyboard */,
@@ -165,6 +185,63 @@
 				C30553FC293CDD5A00A80715 /* challenge_theforkUITestsLaunchTests.swift */,
 			);
 			path = "challenge-theforkUITests";
+			sourceTree = "<group>";
+		};
+		C3055409293CECD800A80715 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				C305540A293CED3500A80715 /* RestaurantsService.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		C305540C293D118000A80715 /* dtos */ = {
+			isa = PBXGroup;
+			children = (
+				C305540D293D11A500A80715 /* RestaurantsResponseDTO.swift */,
+			);
+			path = dtos;
+			sourceTree = "<group>";
+		};
+		C305540F293D16F600A80715 /* presenters */ = {
+			isa = PBXGroup;
+			children = (
+				C3055410293D172100A80715 /* RestaurantListPresenter.swift */,
+			);
+			path = presenters;
+			sourceTree = "<group>";
+		};
+		C3055412293D173500A80715 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				C30553DD293CDD5800A80715 /* RestaurantListView.swift */,
+				C3055414293D41EE00A80715 /* RestaurantTableViewCell.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		C3055416293D881600A80715 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				C3055417293D888200A80715 /* AppImages.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		C3055419293D907A00A80715 /* mappers */ = {
+			isa = PBXGroup;
+			children = (
+				C305541D293D910900A80715 /* MinifiedRestaurantMapper.swift */,
+			);
+			path = mappers;
+			sourceTree = "<group>";
+		};
+		C305541A293D909D00A80715 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				C305541B293D90C000A80715 /* MinifiedRestaurant.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,8 +483,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C30553DE293CDD5800A80715 /* ViewController.swift in Sources */,
+				C305540B293CED3500A80715 /* RestaurantsService.swift in Sources */,
+				C3055418293D888200A80715 /* AppImages.swift in Sources */,
+				C30553DE293CDD5800A80715 /* RestaurantListView.swift in Sources */,
 				C30553DA293CDD5800A80715 /* AppDelegate.swift in Sources */,
+				C305541E293D910900A80715 /* MinifiedRestaurantMapper.swift in Sources */,
+				C3055411293D172100A80715 /* RestaurantListPresenter.swift in Sources */,
+				C305540E293D11A500A80715 /* RestaurantsResponseDTO.swift in Sources */,
+				C305541C293D90C000A80715 /* MinifiedRestaurant.swift in Sources */,
+				C3055415293D41EE00A80715 /* RestaurantTableViewCell.swift in Sources */,
 				C30553DC293CDD5800A80715 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

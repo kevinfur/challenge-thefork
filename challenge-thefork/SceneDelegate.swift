@@ -15,8 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
             if let windowScene = scene as? UIWindowScene {
                 self.window = UIWindow(windowScene: windowScene)
-                let vc = ViewController()
-                self.window!.rootViewController = vc
+                
+                let vc = RestaurantListView(presenter: RestaurantListPresenter())
+                let navigationController = UINavigationController()
+                navigationController.viewControllers = [vc]
+                
+                self.window!.rootViewController = navigationController
                 self.window!.makeKeyAndVisible()
             }
     }
