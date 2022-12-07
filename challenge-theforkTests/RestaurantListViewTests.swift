@@ -29,4 +29,5 @@ class RestaurantListViewTests: XCTestCase {
         view.didTapHeart(restaurant: restaurant)
         XCTAssertEqual(presenterSpy.onDidTapHeartCalledCount, 1)
     }
+
 }

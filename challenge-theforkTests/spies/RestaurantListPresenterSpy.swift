@@ -16,6 +16,7 @@ class RestaurantListPresenterSpy: RestaurantListPresenterProtocol {
     var onDidTapHeartCalledCount = 0
     var onDidTapSortByNameCalledCount = 0
     var onDidTapSortByRatingCalledCount = 0
+    var onFetchRestaurantsCalledCount = 0
     
     func didLoad() {
         onDidLoadCalledCount += 1
@@ -31,5 +32,9 @@ class RestaurantListPresenterSpy: RestaurantListPresenterProtocol {
     
     func didTapSortByRating() {
         onDidTapSortByRatingCalledCount += 1
+    }
+    
+    func fetchRestaurants() {
+        onFetchRestaurantsCalledCount += 1
     }
 }

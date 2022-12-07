@@ -39,6 +39,9 @@
 		C305543929403D4600A80715 /* RestaurantListPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C305543829403D4600A80715 /* RestaurantListPresenterSpy.swift */; };
 		C305543B29403DDF00A80715 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C305543A29403DDF00A80715 /* Localizable.strings */; };
 		C305543D29403ED800A80715 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C305543C29403ED800A80715 /* LocalizedString.swift */; };
+		C30554402940D1E200A80715 /* RestaurantListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C305543F2940D1E200A80715 /* RestaurantListViewSnapshotTests.swift */; };
+		C30554422940E18100A80715 /* restaurant-list-mock-no-images.json in Resources */ = {isa = PBXBuildFile; fileRef = C30554412940E18100A80715 /* restaurant-list-mock-no-images.json */; };
+		C30554442940EF7700A80715 /* RestaurantsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30554432940EF7700A80715 /* RestaurantsServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,9 @@
 		C305543829403D4600A80715 /* RestaurantListPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListPresenterSpy.swift; sourceTree = "<group>"; };
 		C305543A29403DDF00A80715 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C305543C29403ED800A80715 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		C305543F2940D1E200A80715 /* RestaurantListViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewSnapshotTests.swift; sourceTree = "<group>"; };
+		C30554412940E18100A80715 /* restaurant-list-mock-no-images.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "restaurant-list-mock-no-images.json"; sourceTree = "<group>"; };
+		C30554432940EF7700A80715 /* RestaurantsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsServiceTests.swift; sourceTree = "<group>"; };
 		D36FF14ECBCE9C3118691F0D /* Pods-challenge-thefork-challenge-theforkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-challenge-thefork-challenge-theforkUITests.debug.xcconfig"; path = "Target Support Files/Pods-challenge-thefork-challenge-theforkUITests/Pods-challenge-thefork-challenge-theforkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +212,8 @@
 				C305542B294002B000A80715 /* MinifiedRestaurantTests.swift */,
 				C305542D2940041F00A80715 /* MinifiedRestaurantMapperTests.swift */,
 				C30554312940366900A80715 /* RestaurantListViewTests.swift */,
+				C305543F2940D1E200A80715 /* RestaurantListViewSnapshotTests.swift */,
+				C30554432940EF7700A80715 /* RestaurantsServiceTests.swift */,
 			);
 			path = "challenge-theforkTests";
 			sourceTree = "<group>";
@@ -284,6 +292,7 @@
 			children = (
 				C305542F294004A200A80715 /* restaurant-mock.json */,
 				C3055426293FEB5500A80715 /* restaurant-list-mock.json */,
+				C30554412940E18100A80715 /* restaurant-list-mock-no-images.json */,
 				C3055424293FEAB600A80715 /* RestaurantsServiceMock.swift */,
 				C305543329403C7600A80715 /* SettingsContainerMock.swift */,
 			);
@@ -337,6 +346,7 @@
 				C30553E8293CDD5A00A80715 /* Sources */,
 				C30553E9293CDD5A00A80715 /* Frameworks */,
 				C30553EA293CDD5A00A80715 /* Resources */,
+				B2650F6B2587FBF67527A1CA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -428,6 +438,7 @@
 			files = (
 				C3055430294004A200A80715 /* restaurant-mock.json in Resources */,
 				C3055427293FEB5500A80715 /* restaurant-list-mock.json in Resources */,
+				C30554422940E18100A80715 /* restaurant-list-mock-no-images.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +535,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B2650F6B2587FBF67527A1CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-challenge-theforkTests/Pods-challenge-theforkTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-challenge-theforkTests/Pods-challenge-theforkTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-challenge-theforkTests/Pods-challenge-theforkTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F731D6A943421E7CFC79E218 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -573,8 +601,10 @@
 				C305543729403D1600A80715 /* RestaurantListViewSpy.swift in Sources */,
 				C305543929403D4600A80715 /* RestaurantListPresenterSpy.swift in Sources */,
 				C305543429403C7600A80715 /* SettingsContainerMock.swift in Sources */,
+				C30554402940D1E200A80715 /* RestaurantListViewSnapshotTests.swift in Sources */,
 				C305542A293FEBB100A80715 /* JSONReader.swift in Sources */,
 				C30553F1293CDD5A00A80715 /* RestaurantListPresenterTests.swift in Sources */,
+				C30554442940EF7700A80715 /* RestaurantsServiceTests.swift in Sources */,
 				C305542E2940041F00A80715 /* MinifiedRestaurantMapperTests.swift in Sources */,
 				C30554322940366900A80715 /* RestaurantListViewTests.swift in Sources */,
 			);

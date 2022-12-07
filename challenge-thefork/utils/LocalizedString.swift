@@ -16,4 +16,8 @@ struct LocalizedString {
     static let restaurantListCellReviews = NSLocalizedString("restaurant.list.cell.reviews", comment: "")
     static let restaurantListCellAveragePrice = NSLocalizedString("restaurant.list.cell.average.price", comment: "")
     
+    static let restaurantListAlertErrorTitle = NSLocalizedString("restaurant.list.alert.error.title", comment: "")
+    static let restaurantListAlertErrorMessage = NSLocalizedString("restaurant.list.alert.error.message", comment: "")
+    static let restaurantListAlertErrorTryAgain = NSLocalizedString("restaurant.list.alert.error.try.again", comment: "")
+    
 }

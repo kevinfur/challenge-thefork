@@ -16,8 +16,23 @@ class RestaurantListViewSpy: RestaurantListViewProtocol {
     }
     
     var onUpdateUICalledCount = 0
+    var onShowSpinnerCalledCount = 0
+    var onHideSpinnerCalledCount = 0
+    var onShowFetchErrorCalledCount = 0
     
     func updateUI() {
         onUpdateUICalledCount += 1
+    }
+    
+    func showSpinner() {
+        onShowSpinnerCalledCount += 1
+    }
+    
+    func hideSpinner() {
+        onHideSpinnerCalledCount += 1
+    }
+    
+    func showFetchError() {
+        onShowFetchErrorCalledCount += 1
     }
 }

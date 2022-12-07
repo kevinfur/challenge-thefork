@@ -9,11 +9,16 @@ import UIKit
 
 protocol RestaurantListViewProtocol: AnyObject {
     func updateUI()
+    func showSpinner()
+    func hideSpinner()
+    func showFetchError()
 }
 
 class RestaurantListView: UITableViewController {
     
     var presenter: RestaurantListPresenterProtocol
+    
+    let spinner = UIActivityIndicatorView()
     
     init(presenter: RestaurantListPresenterProtocol) {
         self.presenter = presenter
@@ -29,8 +34,20 @@ class RestaurantListView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addSpinner()
         setupView()
         presenter.didLoad()
+    }
+    
+    func addSpinner() {
+        if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
+            spinner.startAnimating()
+            spinner.translatesAutoresizingMaskIntoConstraints = false
+            window.addSubview(spinner)
+            spinner.centerXAnchor.constraint(equalTo: window.centerXAnchor).isActive = true
+            spinner.centerYAnchor.constraint(equalTo: window.centerYAnchor).isActive = true
+            hideSpinner()
+        }
     }
     
     func setupView() {
@@ -95,5 +112,21 @@ extension RestaurantListView: RestaurantListViewProtocol {
         if isViewLoaded {
             tableView.reloadData()
         }
+    }
+    
+    func showSpinner() {
+        spinner.isHidden = false
+    }
+
+    func hideSpinner() {
+        spinner.isHidden = true
+    }
+    
+    func showFetchError() {
+        let alert = UIAlertController(title: LocalizedString.restaurantListAlertErrorTitle, message: LocalizedString.restaurantListAlertErrorMessage, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: LocalizedString.restaurantListAlertErrorTryAgain, style: UIAlertAction.Style.default, handler: { _ in
+            self.presenter.fetchRestaurants()
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }

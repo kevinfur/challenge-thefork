@@ -10,10 +10,12 @@ import XCTest
 
 class RestaurantsServiceMock: RestaurantsServiceProtocol {
     var shouldFail = false
+    var noImages = false
     
     func getRestaurants(completion: @escaping (Result<RestaurantsResponseDTO, Error>) -> ()) {
         if !shouldFail {
-            if let responseMock = JSONReader.read(file: "restaurant-list-mock", objectType: RestaurantsResponseDTO.self) {
+            let mockFileName = noImages ? "restaurant-list-mock-no-images" : "restaurant-list-mock"
+            if let responseMock = JSONReader.read(file: mockFileName, objectType: RestaurantsResponseDTO.self) {
                 completion(.success(responseMock))
             } else {
                 XCTFail("Error loading restaurant list mock")

@@ -17,7 +17,8 @@ class RestaurantListPresenterTests: XCTestCase {
                                                  favouriteRestaurantsService: favouriteRestaurantsServiceMock)
     var viewSpy: RestaurantListViewSpy?
 
-    override func setUpWithError() throws {
+    override func setUp() {
+        super.setUp()
         viewSpy = RestaurantListViewSpy(presenter: presenter)
     }
 
@@ -35,6 +36,9 @@ class RestaurantListPresenterTests: XCTestCase {
         XCTAssertEqual(firstRestaurant.theForkReviewCount, 275)
         XCTAssertEqual(firstRestaurant.thumbnailURL?.absoluteString, "https://res.cloudinary.com/tf-lab/image/upload/f_auto,q_auto,w_80,h_60/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg")
         XCTAssertEqual(firstRestaurant.isFavourite, false)
+        
+        XCTAssertEqual(viewSpy?.onShowSpinnerCalledCount, 1)
+        XCTAssertEqual(viewSpy?.onHideSpinnerCalledCount, 1)
     }
     
     func testPresenterSortRestaurantsByName() throws {
@@ -62,6 +66,12 @@ class RestaurantListPresenterTests: XCTestCase {
         presenter.didTapHeart(restaurantId)
         XCTAssertEqual(favouriteRestaurantsServiceMock.hasRestaurant(withId: restaurantId), true)
         XCTAssertEqual(viewSpy?.onUpdateUICalledCount, 2)
+    }
+    
+    func testPresenterRestaurantsServiceFail() throws {
+        restaurantsServiceMock.shouldFail = true
+        presenter.didLoad()
+        XCTAssertEqual(viewSpy?.onShowFetchErrorCalledCount, 1)
     }
 
 }

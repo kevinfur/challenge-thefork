@@ -11,6 +11,7 @@ protocol RestaurantListPresenterProtocol: AnyObject {
     var view: RestaurantListViewProtocol? { get set }
     var restaurants: [MinifiedRestaurant] { get }
     func didLoad()
+    func fetchRestaurants()
     func didTapHeart(_ restaurantId: String)
     func didTapSortByName()
     func didTapSortByRating()
@@ -37,13 +38,15 @@ class RestaurantListPresenter: RestaurantListPresenterProtocol {
         fetchRestaurants()
     }
     
-    private func fetchRestaurants() {
+    func fetchRestaurants() {
+        view?.showSpinner()
         restaurantsService.getRestaurants(completion: { result in
+            self.view?.hideSpinner()
             switch result {
             case .success(let response):
-                self.restaurants = response.data?.compactMap({ MinifiedRestaurantMapper.map(from: $0) }) ?? []
+                self.restaurants = response.data?.compactMap({ MinifiedRestaurantMapper.map(from: $0, favouriteRestaurantsService: self.favouriteRestaurantsService) }) ?? []
             case .failure(let error):
-                print(error)
+                self.view?.showFetchError()
             }
         })
     }

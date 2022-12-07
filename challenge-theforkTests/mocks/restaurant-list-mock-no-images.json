@@ -1,0 +1,263 @@
+{
+	"data": [{
+		"name": "Curry Garden",
+		"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht123456",
+		"servesCuisine": "Indian",
+		"priceRange": 25,
+		"currenciesAccepted": "EUR",
+		"address": {
+			"street": "89 Rue de Bagnolet",
+			"postalCode": "75020",
+			"locality": "Paris",
+			"country": "France"
+		},
+		"aggregateRatings": {
+			"thefork": {
+				"ratingValue": 9.5,
+				"reviewCount": 275
+			},
+			"tripadvisor": {
+				"ratingValue": 4.5,
+				"reviewCount": 21
+			}
+		},
+		"bestOffer": {
+			"name": "40% off the 'a la carte' menu",
+			"label": "-40%"
+		}
+	}, {
+		"name": "Moom Mam",
+		"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht123457",
+		"servesCuisine": "Thai",
+		"priceRange": 45,
+		"currenciesAccepted": "EUR",
+		"address": {
+			"street": "19 Rue de Mogador",
+			"postalCode": "75009",
+			"locality": "Paris",
+			"country": "France"
+		},
+		"aggregateRatings": {
+			"thefork": {
+				"ratingValue": 9.5,
+				"reviewCount": 3312
+			},
+			"tripadvisor": {
+				"ratingValue": 4.5,
+				"reviewCount": 167
+			}
+		},
+		"bestOffer": {
+			"name": "20% off the 'a la carte' menu",
+			"label": "-20%"
+		}
+	}, {
+		"name": "Les 3 Bornés",
+		"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht123458",
+		"servesCuisine": "French",
+		"priceRange": 40,
+		"currenciesAccepted": "EUR",
+		"address": {
+			"street": "71 Rue Jean-Pierre Timbaud",
+			"postalCode": "75011",
+			"locality": "Paris",
+			"country": "France"
+		},
+		"aggregateRatings": {
+			"thefork": {
+				"ratingValue": 9.5,
+				"reviewCount": 587
+			},
+			"tripadvisor": {
+				"ratingValue": 4.5,
+				"reviewCount": 51
+			}
+		},
+		"bestOffer": {
+			"name": "20% off the 'a la carte' menu",
+			"label": "-20%"
+		}
+	}, {
+		"name": "Swadee",
+		"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht12319",
+		"servesCuisine": "Thai",
+		"priceRange": 32,
+		"currenciesAccepted": "EUR",
+		"address": {
+			"street": "20 Rue du Débarcadère",
+			"postalCode": "75017",
+			"locality": "Paris",
+			"country": "France"
+		},
+		"aggregateRatings": {
+			"thefork": {
+				"ratingValue": 9.2,
+				"reviewCount": 808
+			},
+			"tripadvisor": {
+				"ratingValue": 4,
+				"reviewCount": 135
+			}
+		},
+		"bestOffer": {
+			"name": "30% off the 'a la carte' menu",
+			"label": "-30%"
+		}
+	}, {
+		"name": "Meating Corner",
+		"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht123428",
+		"servesCuisine": "American",
+		"priceRange": 20,
+		"currenciesAccepted": "EUR",
+		"address": {
+			"street": "8 Rue des Lombards",
+			"postalCode": "75004",
+			"locality": "Paris",
+			"country": "France"
+		},
+		"aggregateRatings": {
+			"thefork": {
+				"ratingValue": 9.6,
+				"reviewCount": 2563
+			},
+			"tripadvisor": {
+				"ratingValue": 4.5,
+				"reviewCount": 317
+			}
+		},
+		"bestOffer": {
+			"name": "30% off the 'a la carte' menu",
+			"label": "-30%"
+		}
+	}, {
+		"name": "Yasmin",
+		"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht233456",
+		"servesCuisine": "Indian",
+		"priceRange": 29,
+		"currenciesAccepted": "EUR",
+		"address": {
+			"street": "71-73, Passage Brady",
+			"postalCode": "75010",
+			"locality": "Paris",
+			"country": "France"
+		},
+		"aggregateRatings": {
+			"thefork": {
+				"ratingValue": 9.1,
+				"reviewCount": 2128
+			},
+			"tripadvisor": {
+				"ratingValue": 4,
+				"reviewCount": 296
+			}
+		},
+		"bestOffer": {
+			"name": "30% off the 'a la carte' menu",
+			"label": "-30%"
+		}
+	}, {
+		"name": "Visconti",
+		"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht973456",
+		"servesCuisine": "Italian",
+		"priceRange": 48,
+		"currenciesAccepted": "EUR",
+		"address": {
+			"street": "4, rue de l'Arcade",
+			"postalCode": "75008",
+			"locality": "Paris",
+			"country": "France"
+		},
+		"aggregateRatings": {
+			"thefork": {
+				"ratingValue": 9.3,
+				"reviewCount": 1955
+			},
+			"tripadvisor": {
+				"ratingValue": 4,
+				"reviewCount": 303
+			}
+		},
+		"bestOffer": {
+			"name": "20% off the 'a la carte' menu",
+			"label": "-20%"
+		}
+	}, {
+		"name": "Restaurant New Dehli",
+		"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht1345456",
+		"servesCuisine": "Indian",
+		"priceRange": 26,
+		"currenciesAccepted": "EUR",
+		"address": {
+			"street": "4, passage Brady",
+			"postalCode": "75010",
+			"locality": "Paris",
+			"country": "France"
+		},
+		"aggregateRatings": {
+			"thefork": {
+				"ratingValue": 9,
+				"reviewCount": 1301
+			},
+			"tripadvisor": {
+				"ratingValue": 4,
+				"reviewCount": 76
+			}
+		},
+		"bestOffer": {
+			"name": "30% off the 'a la carte' menu",
+			"label": "-30%"
+		}
+	}, {
+		"name": "Le 27 Gourmand",
+		"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht123209",
+		"servesCuisine": "French",
+		"priceRange": 46,
+		"currenciesAccepted": "EUR",
+		"address": {
+			"street": "27 Boulevard des Batignolles",
+			"postalCode": "75008",
+			"locality": "Paris",
+			"country": "France"
+		},
+		"aggregateRatings": {
+			"thefork": {
+				"ratingValue": 9.6,
+				"reviewCount": 2154
+			},
+			"tripadvisor": {
+				"ratingValue": 4.5,
+				"reviewCount": 153
+			}
+		},
+		"bestOffer": {
+			"name": "30% off the 'a la carte' menu",
+			"label": "-30%"
+		}
+	}, {
+		"name": "Le Beef - Steakhouse Viandes Maturées",
+		"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht1230936",
+		"servesCuisine": "French",
+		"priceRange": 41,
+		"currenciesAccepted": "EUR",
+		"address": {
+			"street": "33 Rue des Rosiers",
+			"postalCode": "75004",
+			"locality": "Paris",
+			"country": "France"
+		},
+		"aggregateRatings": {
+			"thefork": {
+				"ratingValue": 9.1,
+				"reviewCount": 716
+			},
+			"tripadvisor": {
+				"ratingValue": 5,
+				"reviewCount": 49
+			}
+		},
+		"bestOffer": {
+			"name": "40% off the 'a la carte' menu",
+			"label": "-40%"
+		}
+	}]
+}

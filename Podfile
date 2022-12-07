@@ -9,7 +9,9 @@ target 'challenge-thefork' do
 
   target 'challenge-theforkTests' do
     inherit! :search_paths
-    # Pods for testing
+    
+    pod 'SnapshotTesting', '~> 1.9'
+    pod 'OHHTTPStubs/Swift', '~> 9.0'
   end
 
   target 'challenge-theforkUITests' do

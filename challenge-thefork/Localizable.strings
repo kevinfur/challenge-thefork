@@ -13,5 +13,6 @@
 "restaurant.list.cell.reviews" = "reviews";
 "restaurant.list.cell.average.price" = "Avg. price €";
 
-
-
+"restaurant.list.alert.error.title" = "Error";
+"restaurant.list.alert.error.message" = "Oops! An error has occurred requesting the restaurants";
+"restaurant.list.alert.error.try.again" = "Try again";
