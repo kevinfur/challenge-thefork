@@ -19,7 +19,7 @@ struct MinifiedRestaurantMapper {
                                   theForkRatingValue: restaurantDTO.aggregateRatings.thefork.ratingValue,
                                   theForkReviewCount: restaurantDTO.aggregateRatings.thefork.reviewCount,
                                   thumbnailURL: restaurantDTO.mainPhoto?.thumbnail,
-                                  isFavourite: favouriteRestaurantsService.hasRestaurant(with: restaurantDTO.uuid))
+                                  isFavourite: favouriteRestaurantsService.hasRestaurant(withId: restaurantDTO.uuid))
     }
     
 }

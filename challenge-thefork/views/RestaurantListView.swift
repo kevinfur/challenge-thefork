@@ -34,12 +34,36 @@ class RestaurantListView: UITableViewController {
     
     func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Restaurants"
+        navigationItem.title = LocalizedString.restaurantListTitle
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 70
         
         tableView.register(RestaurantCellView.self, forCellReuseIdentifier: "\(RestaurantCellView.self)")
+        
+        let sortButton = UIBarButtonItem(image: AppImages.sort, style: .plain, target: self, action: #selector(handleSortButton))
+        sortButton.tintColor = .black
+        navigationItem.rightBarButtonItem = sortButton
+    }
+    
+    @objc func handleSortButton() {
+        showSortAlert()
+    }
+    
+    func showSortAlert() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: LocalizedString.restaurantListSortByName, style: .default, handler:{ (UIAlertAction)in
+            self.presenter.didTapSortByName()
+        }))
+        
+        alert.addAction(UIAlertAction(title: LocalizedString.restaurantListSortByRating, style: .default, handler:{ (UIAlertAction)in
+            self.presenter.didTapSortByRating()
+        }))
+        
+        alert.addAction(UIAlertAction(title: LocalizedString.restaurantListSortCancel, style: .cancel, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

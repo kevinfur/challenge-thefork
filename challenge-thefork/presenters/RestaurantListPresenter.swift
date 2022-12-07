@@ -12,14 +12,18 @@ protocol RestaurantListPresenterProtocol: AnyObject {
     var restaurants: [MinifiedRestaurant] { get }
     func didLoad()
     func didTapHeart(_ restaurantId: String)
+    func didTapSortByName()
+    func didTapSortByRating()
 }
 
 class RestaurantListPresenter: RestaurantListPresenterProtocol {
     
     weak var view: RestaurantListViewProtocol?
     var favouriteRestaurantsService: FavouriteRestaurantsService
+    var restaurantsService: RestaurantsServiceProtocol
     
-    init(favouriteRestaurantsService: FavouriteRestaurantsService = FavouriteRestaurantsService()) {
+    init(restaurantsService: RestaurantsServiceProtocol = RestaurantsService.shared, favouriteRestaurantsService: FavouriteRestaurantsService = FavouriteRestaurantsService()) {
+        self.restaurantsService = restaurantsService
         self.favouriteRestaurantsService = favouriteRestaurantsService
     }
     
@@ -33,8 +37,8 @@ class RestaurantListPresenter: RestaurantListPresenterProtocol {
         fetchRestaurants()
     }
     
-    func fetchRestaurants() {
-        RestaurantsService.shared.getRestaurants(completion: { result in
+    private func fetchRestaurants() {
+        restaurantsService.getRestaurants(completion: { result in
             switch result {
             case .success(let response):
                 self.restaurants = response.data?.compactMap({ MinifiedRestaurantMapper.map(from: $0) }) ?? []
@@ -49,6 +53,18 @@ class RestaurantListPresenter: RestaurantListPresenterProtocol {
             favouriteRestaurantsService.toggleRestaurant(id: restaurantId)
             restaurants[index].toggleFavourite()
         }
+    }
+    
+    func didTapSortByName() {
+        restaurants.sort(by: { (firstRestaurant, secondRestaurant) -> Bool in
+            return firstRestaurant.name < secondRestaurant.name
+        })
+    }
+    
+    func didTapSortByRating() {
+        restaurants.sort(by: { (firstRestaurant, secondRestaurant) -> Bool in
+            return firstRestaurant.theForkRatingValue > secondRestaurant.theForkRatingValue
+        })
     }
     
 }

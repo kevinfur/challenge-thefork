@@ -19,6 +19,7 @@ class RestaurantCellView: UITableViewCell {
     let addressLabel = UILabel()
     let averagePriceLabel = UILabel()
     let heartImageView = UIImageView()
+    let ratingLabel = UILabel()
     
     weak var delegate: RestaurantCellViewDelegate?
     private var minifiedRestaurant: MinifiedRestaurant?
@@ -28,22 +29,8 @@ class RestaurantCellView: UITableViewCell {
         
         selectionStyle = .none
         
-        restaurantImageView.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        addressLabel.translatesAutoresizingMaskIntoConstraints = false
-        averagePriceLabel.translatesAutoresizingMaskIntoConstraints = false
-        heartImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        restaurantImageView.contentMode = .scaleAspectFill
-        restaurantImageView.clipsToBounds = true
-        
-        heartImageView.contentMode = .scaleAspectFit
-        heartImageView.isUserInteractionEnabled = true
-        let heartTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleHeartTap(_:)))
-        heartImageView.addGestureRecognizer(heartTapGestureRecognizer)
-        
-        nameLabel.numberOfLines = 0
-        addressLabel.numberOfLines = 0
+        setupLabels()
+        setupImages()
         
         let descriptionStackView = UIStackView()
         descriptionStackView.axis = .vertical
@@ -52,6 +39,7 @@ class RestaurantCellView: UITableViewCell {
         descriptionStackView.addArrangedSubview(nameLabel)
         descriptionStackView.addArrangedSubview(addressLabel)
         descriptionStackView.addArrangedSubview(averagePriceLabel)
+        descriptionStackView.addArrangedSubview(ratingLabel)
         descriptionStackView.translatesAutoresizingMaskIntoConstraints = false
 
         contentView.addSubview(restaurantImageView)
@@ -65,7 +53,7 @@ class RestaurantCellView: UITableViewCell {
             "heart": heartImageView
         ]
 
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[image(60)]->=8-|", options: [], metrics: nil, views: viewsDict))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[image(80)]->=8-|", options: [], metrics: nil, views: viewsDict))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[image(80)]-[stack]-[heart(32)]-|", options: [], metrics: nil, views: viewsDict))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[stack]->=8-|", options: [], metrics: nil, views: viewsDict))
         contentView.addConstraints(NSLayoutConstraint.constraints(
@@ -74,6 +62,33 @@ class RestaurantCellView: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupLabels() {
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        addressLabel.translatesAutoresizingMaskIntoConstraints = false
+        averagePriceLabel.translatesAutoresizingMaskIntoConstraints = false
+        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        nameLabel.numberOfLines = 0
+        addressLabel.numberOfLines = 0
+        
+        nameLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
+        addressLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+        averagePriceLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+        ratingLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+    }
+    
+    private func setupImages() {
+        restaurantImageView.translatesAutoresizingMaskIntoConstraints = false
+        restaurantImageView.contentMode = .scaleAspectFill
+        restaurantImageView.clipsToBounds = true
+        
+        heartImageView.translatesAutoresizingMaskIntoConstraints = false
+        heartImageView.contentMode = .scaleAspectFit
+        heartImageView.isUserInteractionEnabled = true
+        let heartTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleHeartTap(_:)))
+        heartImageView.addGestureRecognizer(heartTapGestureRecognizer)
     }
     
     @objc func handleHeartTap(_ sender: UITapGestureRecognizer? = nil) {
@@ -87,7 +102,8 @@ class RestaurantCellView: UITableViewCell {
         
         nameLabel.text = restaurant.name
         addressLabel.text = restaurant.address
-        averagePriceLabel.text = "€ \(restaurant.priceRange)"
+        averagePriceLabel.text = "\(LocalizedString.restaurantListCellAveragePrice)\(restaurant.priceRange)"
+        ratingLabel.text = "\(restaurant.theForkRatingValue) - \(restaurant.theForkReviewCount) \(LocalizedString.restaurantListCellReviews)"
         
         if restaurant.isFavourite {
             heartImageView.image = AppImages.filledHeart

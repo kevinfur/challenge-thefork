@@ -22,12 +22,12 @@ class FavouriteRestaurantsService {
         userDefaultsService.favouriteRestaurants = userDefaultsService.favouriteRestaurants.filter({ $0 == id })
     }
     
-    func hasRestaurant(with id: String) -> Bool {
+    func hasRestaurant(withId id: String) -> Bool {
         return userDefaultsService.favouriteRestaurants.filter({ $0 == id }).count > 0
     }
     
     func toggleRestaurant(id: String) {
-        if hasRestaurant(with: id) {
+        if hasRestaurant(withId: id) {
             removeRestaurant(id: id)
         } else {
             addRestaurant(id: id)

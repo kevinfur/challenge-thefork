@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  challenge-thefork
+
+  Created by Kevin Alan Furman on 07/12/2022.
+  
+*/
+
+"restaurant.list.title" = "Restaurants";
+"restaurant.list.sort.by.name" = "Sort by name";
+"restaurant.list.sort.by.rating" = "Sort by rating";
+"restaurant.list.sort.cancel" = "Cancel";
+"restaurant.list.cell.reviews" = "reviews";
+"restaurant.list.cell.average.price" = "Avg. price €";
+
+
+

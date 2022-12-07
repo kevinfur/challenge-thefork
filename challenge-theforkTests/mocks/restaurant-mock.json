@@ -1,0 +1,39 @@
+{
+	"name": "Curry Garden",
+	"uuid": "4eg4e2bn-1080-4e1e-8438-6t90ht123456",
+	"servesCuisine": "Indian",
+	"priceRange": 25,
+	"currenciesAccepted": "EUR",
+	"address": {
+		"street": "89 Rue de Bagnolet",
+		"postalCode": "75020",
+		"locality": "Paris",
+		"country": "France"
+	},
+	"aggregateRatings": {
+		"thefork": {
+			"ratingValue": 9.5,
+			"reviewCount": 275
+		},
+		"tripadvisor": {
+			"ratingValue": 4.5,
+			"reviewCount": 21
+		}
+	},
+	"mainPhoto": {
+		"source": "https://res.cloudinary.com/tf-lab/image/upload/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg",
+		"612x344": "https://res.cloudinary.com/tf-lab/image/upload/f_auto,q_auto,w_612,h_344/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg",
+		"480x270": "https://res.cloudinary.com/tf-lab/image/upload/f_auto,q_auto,w_480,h_270/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg",
+		"240x135": "https://res.cloudinary.com/tf-lab/image/upload/f_auto,q_auto,w_240,h_135/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg",
+		"664x374": "https://res.cloudinary.com/tf-lab/image/upload/f_auto,q_auto,w_664,h_374/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg",
+		"1350x759": "https://res.cloudinary.com/tf-lab/image/upload/f_auto,q_auto,w_1350,h_759/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg",
+		"160x120": "https://res.cloudinary.com/tf-lab/image/upload/f_auto,q_auto,w_160,h_120/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg",
+		"80x60": "https://res.cloudinary.com/tf-lab/image/upload/f_auto,q_auto,w_80,h_60/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg",
+		"92x92": "https://res.cloudinary.com/tf-lab/image/upload/f_auto,q_auto,w_92,h_92/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg",
+		"184x184": "https://res.cloudinary.com/tf-lab/image/upload/f_auto,q_auto,w_184,h_184/restaurant/b1d8f006-2477-4715-b937-2c34d616dccb/68e364a6-e903-4fb1-9e1e-d91d97457266.jpg"
+	},
+	"bestOffer": {
+		"name": "40% off the 'a la carte' menu",
+		"label": "-40%"
+	}
+}
