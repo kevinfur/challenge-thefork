@@ -26,8 +26,8 @@ class RestaurantListPresenterTests: XCTestCase {
         presenter.didLoad()
         XCTAssertEqual(viewSpy?.onUpdateUICalledCount, 1)
                 
-        XCTAssertEqual(presenter.restaurants.count, 10)
-        let firstRestaurant = presenter.restaurants[0]
+        XCTAssertEqual(presenter.viewModel.count, 10)
+        let firstRestaurant = presenter.viewModel[0]
         XCTAssertEqual(firstRestaurant.uuid, "4eg4e2bn-1080-4e1e-8438-6t90ht123456")
         XCTAssertEqual(firstRestaurant.name, "Curry Garden")
         XCTAssertEqual(firstRestaurant.priceRange, 25)
@@ -44,8 +44,8 @@ class RestaurantListPresenterTests: XCTestCase {
     func testPresenterSortRestaurantsByName() throws {
         presenter.didLoad()
         presenter.didTapSortByName()
-        let firstRestaurant = presenter.restaurants[0]
-        let lastRestaurant = presenter.restaurants[presenter.restaurants.count-1]
+        let firstRestaurant = presenter.viewModel[0]
+        let lastRestaurant = presenter.viewModel[presenter.viewModel.count-1]
         XCTAssertEqual(firstRestaurant.name, "Curry Garden")
         XCTAssertEqual(lastRestaurant.name, "Yasmin")
     }
@@ -53,8 +53,8 @@ class RestaurantListPresenterTests: XCTestCase {
     func testPresenterSortRestaurantsByRating() throws {
         presenter.didLoad()
         presenter.didTapSortByRating()
-        let firstRestaurant = presenter.restaurants[0]
-        let lastRestaurant = presenter.restaurants[presenter.restaurants.count-1]
+        let firstRestaurant = presenter.viewModel[0]
+        let lastRestaurant = presenter.viewModel[presenter.viewModel.count-1]
         XCTAssertEqual(firstRestaurant.theForkRatingValue, 9.6)
         XCTAssertEqual(lastRestaurant.theForkRatingValue, 9.0)
     }

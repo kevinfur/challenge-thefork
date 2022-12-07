@@ -9,12 +9,12 @@ import Foundation
 
 protocol RestaurantListPresenterProtocol: AnyObject {
     var view: RestaurantListViewProtocol? { get set }
-    var restaurants: [MinifiedRestaurant] { get }
+    var viewModel: [MinifiedRestaurant] { get }
     func didLoad()
-    func fetchRestaurants()
     func didTapHeart(_ restaurantId: String)
     func didTapSortByName()
     func didTapSortByRating()
+    func didTapRetry()
 }
 
 class RestaurantListPresenter: RestaurantListPresenterProtocol {
@@ -28,7 +28,7 @@ class RestaurantListPresenter: RestaurantListPresenterProtocol {
         self.favouriteRestaurantsService = favouriteRestaurantsService
     }
     
-    var restaurants: [MinifiedRestaurant] = [] {
+    var viewModel: [MinifiedRestaurant] = [] {
         didSet {
             view?.updateUI()
         }
@@ -44,28 +44,32 @@ class RestaurantListPresenter: RestaurantListPresenterProtocol {
             self.view?.hideSpinner()
             switch result {
             case .success(let response):
-                self.restaurants = response.data?.compactMap({ MinifiedRestaurantMapper.map(from: $0, favouriteRestaurantsService: self.favouriteRestaurantsService) }) ?? []
-            case .failure(let error):
+                self.viewModel = response.data?.compactMap({ MinifiedRestaurantMapper.map(from: $0, favouriteRestaurantsService: self.favouriteRestaurantsService) }) ?? []
+            case .failure:
                 self.view?.showFetchError()
             }
         })
     }
     
+    func didTapRetry() {
+        fetchRestaurants()
+    }
+    
     func didTapHeart(_ restaurantId: String) {
-        if let index = self.restaurants.firstIndex(where: {$0.uuid == restaurantId}) {
+        if let index = self.viewModel.firstIndex(where: {$0.uuid == restaurantId}) {
             favouriteRestaurantsService.toggleRestaurant(id: restaurantId)
-            restaurants[index].toggleFavourite()
+            viewModel[index].toggleFavourite()
         }
     }
     
     func didTapSortByName() {
-        restaurants.sort(by: { (firstRestaurant, secondRestaurant) -> Bool in
+        viewModel.sort(by: { (firstRestaurant, secondRestaurant) -> Bool in
             return firstRestaurant.name < secondRestaurant.name
         })
     }
     
     func didTapSortByRating() {
-        restaurants.sort(by: { (firstRestaurant, secondRestaurant) -> Bool in
+        viewModel.sort(by: { (firstRestaurant, secondRestaurant) -> Bool in
             return firstRestaurant.theForkRatingValue > secondRestaurant.theForkRatingValue
         })
     }

@@ -89,13 +89,13 @@ class RestaurantListView: UITableViewController {
 extension RestaurantListView {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.restaurants.count
+        return presenter.viewModel.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(RestaurantCellView.self)", for: indexPath) as? RestaurantCellView else { return UITableViewCell()}
         cell.delegate = self
-        cell.setup(with: presenter.restaurants[indexPath.row])
+        cell.setup(with: presenter.viewModel[indexPath.row])
         return cell
     }
     
@@ -125,7 +125,7 @@ extension RestaurantListView: RestaurantListViewProtocol {
     func showFetchError() {
         let alert = UIAlertController(title: LocalizedString.restaurantListAlertErrorTitle, message: LocalizedString.restaurantListAlertErrorMessage, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: LocalizedString.restaurantListAlertErrorTryAgain, style: UIAlertAction.Style.default, handler: { _ in
-            self.presenter.fetchRestaurants()
+            self.presenter.didTapRetry()
         }))
         self.present(alert, animated: true, completion: nil)
     }
