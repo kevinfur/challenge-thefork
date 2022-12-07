@@ -22,8 +22,9 @@
 - Currency is always €
 
 ## Clarifications
-- Architecture: MVP
-- In order for the snapshot tests to succeed you must select an iPhone 13 simulator and it must be in light mode
+- Architecture: MVP with dependency injection. Easy to be understood and testable.
+- I decided to use only The Fork rating.
+- In order for the snapshot tests to succeed you must select an iPhone 13 simulator and it must be in light mode.
 
 
 # iOS Technical Test - Light version
