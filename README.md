@@ -1,7 +1,7 @@
 # The Fork iOS Technical Test
 
 ## Demo
-<img src="https://s9.gifyu.com/images/ezgif-2-ed78896dcd.gif" width="150" />
+<img src="ttps://s9.gifyu.com/images/ezgif-2-409c93c629.gif" width="150" />
 
 ## Used tools
 - Macbook Pro M1
