@@ -8,8 +8,8 @@
 - macOS Monterey 12.0.1
 - Xcode 13.4.1
 - Cocoapods 1.11.3
-- Simulador iPhone 13 con iOS 15.5
-- Simulador iPhone X con iOS 12.4
+- iPhone 13 with iOS 15.5 simulator
+- iPhone X with iOS 12.4 simulator
 
 ## Instructions
 1. Open the terminal
@@ -18,12 +18,12 @@
 4. Open `challenge-thefork.xcworkspace` with Xcode
 5. Choose a simulator and click Run
 
-## Asumpsions
+## Assumptions
 - Currency is always €
 
 ## Clarifications
 - Architecture: MVP
-- In order to the snapshot tests to succeed you must select an iPhone 13 simulator and it must be in light mode
+- In order for the snapshot tests to succeed you must select an iPhone 13 simulator and it must be in light mode
 
 
 # iOS Technical Test - Light version
